@@ -18,7 +18,7 @@ public interface StudentMapper {
     List<Student> findStudent(Student student);
 
     @Update("update student set `sno`=#{sno}, `name`=#{name}, `sex`=#{sex}, `birthday`=#{birthday}, `major`=#{major} where id=#{id}")
-    List<Student> editStudent(Student student);
+    boolean editStudent(Student student);
 
     @Select("select * from student")
     List<Student> getAll();
