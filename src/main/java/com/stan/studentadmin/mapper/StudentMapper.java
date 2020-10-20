@@ -13,13 +13,15 @@ import java.util.List;
  * @Modified By：
  */
 public interface StudentMapper {
-
-    @Select("select * from student where sno = '${sno}' or name like '%${name}%'")
+    @Select("select s.id,s.sno,s.name,s.sex,s.birthday,s.major_id as majorId,m.name as major from student s " +
+            "left join major m on m.id=s.major_id " +
+            "where s.sno = '${sno}' or s.name like '%${name}%'")
     List<Student> findStudent(Student student);
 
-    @Update("update student set `sno`=#{sno}, `name`=#{name}, `sex`=#{sex}, `birthday`=#{birthday}, `major`=#{major} where id=#{id}")
+    @Update("update student set `sno`=#{sno}, `name`=#{name}, `sex`=#{sex}, `birthday`=#{birthday},`major_id`=#{majorId} where id=#{id}")
     boolean editStudent(Student student);
 
-    @Select("select * from student")
+    @Select("select s.id,s.sno,s.name,s.sex,s.birthday,s.major_id as majorId,m.name as major from student s " +
+            "left join major m on m.id=s.major_id")
     List<Student> getAll();
 }

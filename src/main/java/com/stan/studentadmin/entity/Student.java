@@ -23,6 +23,7 @@ public class Student implements Serializable {
     private Integer sex;
     private Date birthday;
     private String major;
+    private Integer majorId;
 }
 
 //    INSERT INTO `student` (`id`, `sno`, `name`, `sex`, `birthday`, `major`)

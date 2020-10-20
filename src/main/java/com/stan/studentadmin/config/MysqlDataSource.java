@@ -31,7 +31,6 @@ public class MysqlDataSource extends DriverManagerDataSource {
 
     @Override
     protected Connection getConnectionFromDriver(Properties props) throws SQLException {
-        logger.info("连接数据库: props={}", props);
         logger.info("连接数据库: url={}, username={}, password={}", url, username, password);
         return DriverManager.getConnection(url, username, password);
     }
